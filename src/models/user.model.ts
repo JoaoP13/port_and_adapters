@@ -6,24 +6,8 @@ export default class User {
     constructor(readonly userDatabaseRepository: UserRepository) {
     }
 
-    async create(input: CreateUser): Promise<String> {
-        const result = await this.userDatabaseRepository.create(input);
-
-        return result
-    }
-    async update(email:String,input: CreateUser): Promise<String> {
-        const result = await this.userDatabaseRepository.update(email,input);
-
-        return result
-    }
-
-    async list(): Promise<Object> {
-        const result = await this.userDatabaseRepository.list();
-
-        return result;
-    }
     async listByFilters(input: CreateUser): Promise<Object> {
-        const result = await this.userDatabaseRepository.listByFilters(input);
+        const result = await this.userDatabaseRepository.listByFilters({});
 
         return result;
     }
