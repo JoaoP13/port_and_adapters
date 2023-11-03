@@ -9,12 +9,12 @@ export default class User {
     async create(input: CreateUser): Promise<String> {
         const result = await this.userDatabaseRepository.create(input);
 
-        return result
+        return result;
     }
     async update(email:String,input: CreateUser): Promise<String> {
         const result = await this.userDatabaseRepository.update(email,input);
 
-        return result
+        return result;
     }
 
     async list(): Promise<Object> {

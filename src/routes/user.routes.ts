@@ -16,6 +16,7 @@ userRouter.post('/createUser', async (request: express.Request, response: expres
     
     response.status(200).send({ result });
 });
+
 userRouter.put('/updateUser/:email', async (request: express.Request, response: express.Response): Promise<any> => {
     const userModel: User = new User(new userDatabaseRepository());
     const { email } = request.params
