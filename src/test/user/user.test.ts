@@ -1,7 +1,7 @@
 import app from "../../app";
 import request from 'supertest'
 
-describe("Create User", () => {
+describe("return list of user by filters", () => {
   it("Should be able to retrive all users by some filters", async () => {
     const response = await request(app).get("/api/user/listByFilters").send({
       name: "test-integration",
