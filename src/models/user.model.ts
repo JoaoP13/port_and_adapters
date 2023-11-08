@@ -11,8 +11,15 @@ export default class User {
 
         return result;
     }
+
     async update(email:String,input: CreateUser): Promise<String> {
         const result = await this.userDatabaseRepository.update(email,input);
+
+        return result;
+    }
+
+    async delete(email:String): Promise<String> {
+        const result = await this.userDatabaseRepository.delete(email);
 
         return result;
     }

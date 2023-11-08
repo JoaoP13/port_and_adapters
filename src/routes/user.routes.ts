@@ -5,37 +5,69 @@ import userDatabaseRepository from '../repository/user/userDatabase.repository';
 const userRouter: express.Router = express.Router();
 
 userRouter.post('/createUser', async (request: express.Request, response: express.Response): Promise<any> => {
-    const userModel: User = new User(new userDatabaseRepository());
-    const user: CreateUser = {
-        name: request.body.name,
-        email: request.body.email,
-        birthDate: request.body.birthDate
-    }
-
-    const result = await userModel.create(user)
+    try{
+        const userModel: User = new User(new userDatabaseRepository());
+        const user: CreateUser = {
+            name: request.body.name,
+            email: request.body.email,
+            birthDate: request.body.birthDate
+        }
+        const result = await userModel.create(user)
     
-    response.status(200).send({ result });
+        response.status(200).send({ result });
+
+    }catch(error){
+        response.status(404).send({ error });
+    }
 });
 
 userRouter.put('/updateUser/:email', async (request: express.Request, response: express.Response): Promise<any> => {
-    const userModel: User = new User(new userDatabaseRepository());
-    const { email } = request.params
-    const user: CreateUser = {
-        name: request.body.name,
-        email: request.body.email,
-        birthDate: request.body.birthDate
+    try {
+        const userModel: User = new User(new userDatabaseRepository());
+        const { email } = request.params
+        const user: CreateUser = {
+            name: request.body.name,
+            email: request.body.email,
+            birthDate: request.body.birthDate
+        }
+    
+        const result = await userModel.update(email,user)
+    
+        response.status(200).send({ result });
+
+    } catch (error) {
+        response.status(404).send({ error });
     }
+});
+
+userRouter.delete('/deleteUser/:email', async (request: express.Request, response: express.Response): Promise<any> => {
+    try {
+        const userModel: User = new User(new userDatabaseRepository());
+        const { email } = request.params
+        const user: CreateUser = {
+            name: request.body.name,
+            email: request.body.email,
+            birthDate: request.body.birthDate
+        }
     
-    const result = await userModel.update(email,user)
+        const result = await userModel.delete(email)
     
-    response.status(200).send({ result });
+        response.status(200).send({ result });
+
+    } catch (error) {
+        response.status(404).send({ error });
+    }
 });
 
 userRouter.get('/list', async (request: express.Request, response: express.Response): Promise<any> => {
-    const userModel: User = new User(new userDatabaseRepository());
-    const result = await userModel.list()
+    try {
+        const userModel: User = new User(new userDatabaseRepository());
+        const result = await userModel.list()
 
-    response.status(200).send({ result });
+        response.status(200).send({ result });
+    } catch (error) {
+        response.status(404).send({ error });
+    }
 });
 
 userRouter.get('/listByFilters', async (request: express.Request, response: express.Response): Promise<any> => {
