@@ -2,7 +2,11 @@
 
 ## Grupo 6:
 João Paulo Gonçalves de Souza
+
+
 Lucas Alexansderson da Fonseca
+
+
 Lucas Loscheider Reis Muniz
 
 # Exemplo prático de arquitetura hexagonal
