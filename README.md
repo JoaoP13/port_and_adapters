@@ -1,5 +1,6 @@
-Laboratório de engenharia de software - Eduardo Cunha Campos
-Grupo 6:
+## Laboratório de engenharia de software - Eduardo Cunha Campos
+
+## Grupo 6:
 João Paulo Gonçalves de Souza
 Lucas Alexansderson da Fonseca
 Lucas Loscheider Reis Muniz
